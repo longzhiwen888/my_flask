@@ -1,0 +1,8 @@
+flask==0.10.1
+flask-admin
+Flask-BabelEx
+sqlalchemy==0.9.8
+Flask-Script
+Flask-Migrate
+Flask-Testing
+Flask-SQLAlchemy
