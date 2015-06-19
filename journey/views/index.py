@@ -7,6 +7,9 @@ from flask import (
 )
 
 from flask.ext.babelex import gettext as _
+from journey.utils.user import (
+    login_user, logout_user, reg, validate_user
+)
 from journey.views.permisson import require_login
 
 bp = Blueprint('journey', __name__)
@@ -20,18 +23,13 @@ def hello():
 
 @bp.route('/login/', methods=['GET', 'POST'])
 def login():
-    next_url = request.args.get('next', '/')
+    next_url = request.args.get('next', '/admin/')
     if request.method == 'POST':
         account = request.form.get('account', '')
         password = request.form.get('password', '')
-        c_config = current_app.config
-        username = c_config.get('USERNAME').strip()
-        user_password = str(c_config.get('USER_PASSWORD')).strip()
-        if account == username and password == user_password:
-            print 'success'
-            token = '%s|%s' % (username, user_password)
-            session['login_token'] = token
-            session.permanent = True
+        user = validate_user(account, password)
+        if user:
+            login_user(user, permanent=True)
             return redirect(next_url)
         else:
             return jsonify(dict(a=2))
@@ -41,6 +39,12 @@ def login():
 
 @bp.route('/login_out/')
 def login_out():
+    logout_user()
+    return redirect('/login/')
+
+
+@bp.route('/user_reg/')
+def user_reg():
     if 'login_token' in session:
         del session['login_token']
     return redirect('/login/')

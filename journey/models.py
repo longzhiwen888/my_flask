@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import hashlib
 from datetime import datetime
 from flask.ext.sqlalchemy import SQLAlchemy, BaseQuery as _BaseQuery
 from rhct.utils import FancyDict
@@ -96,6 +97,7 @@ class User(BaseModel):
     active = db.Column(db.Boolean, nullable=False, default=True)
     is_admin = db.Column(db.Boolean, nullable=False, default=False)
     create_time = db.Column(db.DATETIME, default=datetime.now())
+    token = db.Column(db.String(100), nullable=False)
 
     def __unicode__(self):
         return self.user_name
@@ -103,14 +105,11 @@ class User(BaseModel):
     def is_active(self):
         return self.active
 
-    def is_anonymous(self):
-        return False
-
-    def get_id(self):
-        return u'%s' % self.id
-
-    def is_authenticated(self):
-        return True
+    def save(self, **kwargs):
+        if not self.token:
+            self.token = self.user_name + "|" + self.password
+            self.token = hashlib.new("md5", self.token).hexdigest()
+        super(User, self).save()
 
 
 class Note(BaseModel):

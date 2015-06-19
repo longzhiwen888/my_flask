@@ -117,3 +117,4 @@ app.config['BABEL_DEFAULT_LOCALE'] = 'zh_Hans_CN'
 my_domain = Domain()
 babel = Babel(app, default_domain=my_domain)
 admin = Admin(app, name=_("Dashbord"))
+web_root = os.path.dirname(__file__)
