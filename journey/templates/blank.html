@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="stylesheet" href="{{ static_file('css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ static_file('css/sb-admin-2.css') }}">
+  {% block style %}
+  {% endblock %}
+</head>
+
+<body>
+{% block content %}
+{% endblock %}
+<script type="application/javascript" src="{{ static_file('js/jquery.min.js') }}"></script>
+<script type="application/javascript" src="{{ static_file('js/bootstrap.min.js') }}"></script>
+<script type="application/javascript" src="{{ static_file('js/echarts-all.js') }}"></script>
+{% block js %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>热门话题统计系统</title>
+  <link rel="stylesheet" href="{{ static_file('css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ static_file('css/metisMenu.min.css') }}">
+  <link rel="stylesheet" href="{{ static_file('css/sb-admin-2.css') }}">
+  <link rel="stylesheet" href="{{ static_file('css/font-awesome.min.css') }}">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="login-panel panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">请登录</h3>
+          </div>
+          <div class="panel-body">
+            <form role="form" action='.' method='post'>
+              <fieldset>
+                <div class="form-group">
+                  <input class="form-control" placeholder="用户名" name="account" type="text" autofocus>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" 
+                    placeholder="密码" 
+                    name="password" type="password"
+                    value=""
+                  >
+                </div>
+                <button type="submit" class="btn btn-lg btn-success btn-block">登录</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script type="application/javascript" src="{{ static_file('js/jquery.min.js') }}"></script>
+  <script type="application/javascript" src="{{ static_file('js/bootstrap.min.js') }}"></script>
+  <script type="application/javascript" src="{{ static_file('js/metisMenu.min.js') }}"></script>
+  <script type="application/javascript" src="{{ static_file('js/sb-admin-2.js') }}"></script>
+</body>
+
+</html>
