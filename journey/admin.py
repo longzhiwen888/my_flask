@@ -13,7 +13,7 @@ from models import User
 class MyView(BaseView):
     @expose('/')
     def index(self):
-        return self.render('index.html',  text=_("Hello, world!"))
+        return self.render('admin_index.html',  text=_("Hello, world!"))
 
     # def is_accessible(self):
     #     return get_current_user()
