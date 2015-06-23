@@ -14,7 +14,7 @@ from journey.utils.user import get_current_user
 class MyView(BaseView):
     @expose('/')
     def index(self):
-        return self.render('admin_index222.html',  text=_("Hello, world!"))
+        return self.render('admin_index.html',  text=_("Hello, world!"))
 
     def is_accessible(self):
         return True
