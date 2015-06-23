@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from journey.flask_init import app
-from journey.admin import register_admin
+from journey.views.admin import register_admin
 
 register_admin()
 app.run(debug=False)

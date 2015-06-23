@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-19 17:06+0800\n"
+"POT-Creation-Date: 2015-06-23 16:59+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,48 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: journey/admin.py:16 journey/templates/web_index.html:1
-msgid "Hello, world!"
-msgstr ""
-
-#: journey/admin.py:27
-msgid "user_model_id"
-msgstr ""
-
-#: journey/admin.py:28
-msgid "user_model_name"
-msgstr ""
-
-#: journey/admin.py:29
-msgid "user_model_password"
-msgstr ""
-
-#: journey/admin.py:30
-msgid "user_model_active"
-msgstr ""
-
-#: journey/admin.py:31
-msgid "user_model_is_admin"
-msgstr ""
-
-#: journey/admin.py:32
-msgid "user_model_create_time"
-msgstr ""
-
-#: journey/admin.py:35
-msgid "Test"
-msgstr ""
-
-#: journey/admin.py:40
-msgid "User"
-msgstr ""
-
-#: journey/admin.py:43
-msgid "Static Files"
-msgstr ""
-
 #: journey/flask_init.py:119
 msgid "Dashbord"
+msgstr ""
+
+#: journey/templates/web_index.html:1 journey/views/admin.py:16
+msgid "Hello, world!"
 msgstr ""
 
 #: journey/templates/web_index.html:2
@@ -66,7 +30,215 @@ msgstr ""
 msgid "It's %(day)s today"
 msgstr ""
 
-#: journey/views/index.py:17
+#: journey/views/admin.py:27
+msgid "OutboundOrder_order_no"
+msgstr ""
+
+#: journey/views/admin.py:28
+msgid "OutboundOrder_goods_num"
+msgstr ""
+
+#: journey/views/admin.py:29
+msgid "OutboundOrder_id"
+msgstr ""
+
+#: journey/views/admin.py:30
+msgid "OutboundOrder_create_time"
+msgstr ""
+
+#: journey/views/admin.py:31
+msgid "OutboundOrder_goods_no"
+msgstr ""
+
+#: journey/views/admin.py:32
+msgid "OutboundOrder_warehouse_no"
+msgstr ""
+
+#: journey/views/admin.py:36
+msgid "Warehouse_address"
+msgstr ""
+
+#: journey/views/admin.py:37
+msgid "Warehouse_id"
+msgstr ""
+
+#: journey/views/admin.py:37
+msgid "Warehouse_name"
+msgstr ""
+
+#: journey/views/admin.py:38
+msgid "Warehouse_admin_id"
+msgstr ""
+
+#: journey/views/admin.py:42
+msgid "Goods_category"
+msgstr ""
+
+#: journey/views/admin.py:43
+msgid "Goods_measurement_unit"
+msgstr ""
+
+#: journey/views/admin.py:44
+msgid "Goods_goods_no"
+msgstr ""
+
+#: journey/views/admin.py:45
+msgid "Goods_id"
+msgstr ""
+
+#: journey/views/admin.py:46
+msgid "Goods_name"
+msgstr ""
+
+#: journey/views/admin.py:50
+msgid "Inventory_goods_no"
+msgstr ""
+
+#: journey/views/admin.py:51
+msgid "Inventory_id"
+msgstr ""
+
+#: journey/views/admin.py:52
+msgid "Inventory_goods_num"
+msgstr ""
+
+#: journey/views/admin.py:53
+msgid "Inventory_warehouse_no"
+msgstr ""
+
+#: journey/views/admin.py:57
+msgid "InboundOrder_order_no"
+msgstr ""
+
+#: journey/views/admin.py:58
+msgid "InboundOrder_supplier_no"
+msgstr ""
+
+#: journey/views/admin.py:59
+msgid "InboundOrder_goods_num"
+msgstr ""
+
+#: journey/views/admin.py:60
+msgid "InboundOrder_warehouse_no"
+msgstr ""
+
+#: journey/views/admin.py:61
+msgid "InboundOrder_create_time"
+msgstr ""
+
+#: journey/views/admin.py:62
+msgid "InboundOrder_goods_price"
+msgstr ""
+
+#: journey/views/admin.py:63
+msgid "InboundOrder_goods_no"
+msgstr ""
+
+#: journey/views/admin.py:64
+msgid "InboundOrder_id"
+msgstr ""
+
+#: journey/views/admin.py:68
+msgid "Supplier_contact_name"
+msgstr ""
+
+#: journey/views/admin.py:69
+msgid "Supplier_contact_phone"
+msgstr ""
+
+#: journey/views/admin.py:70
+msgid "Supplier_id"
+msgstr ""
+
+#: journey/views/admin.py:71
+msgid "Supplier_name"
+msgstr ""
+
+#: journey/views/admin.py:72
+msgid "Supplier_address"
+msgstr ""
+
+#: journey/views/admin.py:76
+msgid "User_token"
+msgstr ""
+
+#: journey/views/admin.py:77
+msgid "User_create_time"
+msgstr ""
+
+#: journey/views/admin.py:78
+msgid "User_is_admin"
+msgstr ""
+
+#: journey/views/admin.py:79
+msgid "User_active"
+msgstr ""
+
+#: journey/views/admin.py:80
+msgid "User_password"
+msgstr ""
+
+#: journey/views/admin.py:81
+msgid "User_user_name"
+msgstr ""
+
+#: journey/views/admin.py:82
+msgid "User_id"
+msgstr ""
+
+#: journey/views/admin.py:86
+msgid "Manager_contact_phone"
+msgstr ""
+
+#: journey/views/admin.py:87
+msgid "Manager_name"
+msgstr ""
+
+#: journey/views/admin.py:88
+msgid "Manager_id"
+msgstr ""
+
+#: journey/views/admin.py:92
+msgid "Test"
+msgstr ""
+
+#: journey/views/admin.py:101
+msgid "OutboundOrder"
+msgstr ""
+
+#: journey/views/admin.py:103
+msgid "Warehouse"
+msgstr ""
+
+#: journey/views/admin.py:105
+msgid "Goods"
+msgstr ""
+
+#: journey/views/admin.py:107
+msgid "Inventory"
+msgstr ""
+
+#: journey/views/admin.py:109
+msgid "InboundOrder"
+msgstr ""
+
+#: journey/views/admin.py:111
+msgid "Supplier"
+msgstr ""
+
+#: journey/views/admin.py:113
+msgid "User"
+msgstr ""
+
+#: journey/views/admin.py:115
+msgid "Manager"
+msgstr ""
+
+#: journey/views/admin.py:119
+msgid "Static Files"
+msgstr ""
+
+#: journey/views/index.py:20
 msgid "Saturday"
 msgstr ""
 

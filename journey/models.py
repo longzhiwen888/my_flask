@@ -4,6 +4,7 @@
 import hashlib
 from datetime import datetime
 from flask.ext.sqlalchemy import SQLAlchemy, BaseQuery as _BaseQuery
+from werkzeug import security
 from rhct.utils import FancyDict
 
 db = SQLAlchemy()
@@ -89,15 +90,19 @@ class BaseModel(DefaultModel, SessionMixin):
 
 
 class User(BaseModel):
-    __tablename__ = u'user'
-
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(100), index=True, unique=True)
     password = db.Column(db.String(100), nullable=False)
     active = db.Column(db.Boolean, nullable=False, default=True)
     is_admin = db.Column(db.Boolean, nullable=False, default=False)
     create_time = db.Column(db.DATETIME, default=datetime.now())
-    token = db.Column(db.String(100), nullable=False)
+    token = db.Column(db.String(100), nullable=True)
+
+    def __init__(self):
+        self.token = self.create_token()
+
+    def create_token(self, length=16):
+        return security.gen_salt(length)
 
     def __unicode__(self):
         return self.user_name
@@ -105,19 +110,58 @@ class User(BaseModel):
     def is_active(self):
         return self.active
 
-    def save(self, **kwargs):
-        if not self.token:
-            self.token = self.user_name + "|" + self.password
-            self.token = hashlib.new("md5", self.token).hexdigest()
-        super(User, self).save()
 
-
-class Note(BaseModel):
-    __tablename__ = u'note'
-
+class Inventory(BaseModel):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(120), nullable=False)
-    content = db.Column(db.Text, nullable=False)
-    last_updated = db.Column(db.DATETIME, default=datetime.now())
+    warehouse_no = db.Column(db.String(120))
+    goods_no = db.Column(db.String(120))
+    goods_num = db.Column(db.Integer)
 
-    user_id = db.Column(db.Integer)
+
+class Warehouse(BaseModel):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
+    address = db.Column(db.String(250), nullable=False)
+    admin_id = db.Column(db.Integer)
+
+
+class Goods(BaseModel):
+    id = db.Column(db.Integer, primary_key=True)
+    goods_no = db.Column(db.String(250), nullable=False)
+    name = db.Column(db.String(250), nullable=False)
+    category = db.Column(db.String(250), nullable=False)
+    measurement_unit = db.Column(db.String(250), nullable=False)
+
+
+class Supplier(BaseModel):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(250), nullable=False)
+    contact_name = db.Column(db.String(250), nullable=False)
+    contact_phone = db.Column(db.String(250), nullable=False)
+    address = db.Column(db.String(250), nullable=False)
+
+
+class Manager(BaseModel):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(250), nullable=False)
+    contact_phone = db.Column(db.String(250), nullable=False)
+
+
+class OutboundOrder(BaseModel):
+    id = db.Column(db.Integer, primary_key=True)
+    order_no = db.Column(db.String(250), nullable=False)
+    goods_no = db.Column(db.String(250), nullable=False)
+    goods_num = db.Column(db.Integer)
+    warehouse_no = db.Column(db.String(250), nullable=False)
+    create_time = db.Column(db.DATETIME, default=datetime.now())
+
+
+class InboundOrder(BaseModel):
+    id = db.Column(db.Integer, primary_key=True)
+    order_no = db.Column(db.String(250), nullable=False)
+    goods_no = db.Column(db.String(250), nullable=False)
+    goods_num = db.Column(db.Integer)
+    warehouse_no = db.Column(db.String(250), nullable=False)
+    goods_price = db.Column(db.Float)
+    supplier_no = db.Column(db.String(250), nullable=False)
+    create_time = db.Column(db.DATETIME, default=datetime.now())

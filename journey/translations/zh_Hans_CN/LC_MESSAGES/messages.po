@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-19 17:06+0800\n"
+"POT-Creation-Date: 2015-06-23 16:59+0800\n"
 "PO-Revision-Date: 2015-06-19 10:56+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hans_CN <LL@li.org>\n"
@@ -17,57 +17,237 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: journey/admin.py:16 journey/templates/web_index.html:1
-msgid "Hello, world!"
-msgstr "哈喽, 世界"
-
-#: journey/admin.py:27
-#, fuzzy
-msgid "user_model_id"
-msgstr "用户ID"
-
-#: journey/admin.py:28
-msgid "user_model_name"
-msgstr "用户名"
-
-#: journey/admin.py:29
-msgid "user_model_password"
-msgstr "密码"
-
-#: journey/admin.py:30
-msgid "user_model_active"
-msgstr "激活状态"
-
-#: journey/admin.py:31
-msgid "user_model_is_admin"
-msgstr "管理员"
-
-#: journey/admin.py:32
-msgid "user_model_create_time"
-msgstr "创建时间"
-
-#: journey/admin.py:35
-msgid "Test"
-msgstr "测试"
-
-#: journey/admin.py:40
-msgid "User"
-msgstr "用户"
-
-#: journey/admin.py:43
-msgid "Static Files"
-msgstr "静态文件"
-
 #: journey/flask_init.py:119
 msgid "Dashbord"
 msgstr "后台管理"
+
+#: journey/templates/web_index.html:1 journey/views/admin.py:16
+msgid "Hello, world!"
+msgstr "哈喽, 世界"
 
 #: journey/templates/web_index.html:2
 #, python-format
 msgid "It's %(day)s today"
 msgstr "今天是%(day)s"
 
-#: journey/views/index.py:17
+#: journey/views/admin.py:27
+msgid "OutboundOrder_order_no"
+msgstr "出库单订单"
+
+#: journey/views/admin.py:28
+msgid "OutboundOrder_goods_num"
+msgstr "出库单商品数量"
+
+#: journey/views/admin.py:29
+msgid "OutboundOrder_id"
+msgstr "出库单ID"
+
+#: journey/views/admin.py:30
+#, fuzzy
+msgid "OutboundOrder_create_time"
+msgstr "创建时间"
+
+#: journey/views/admin.py:31
+msgid "OutboundOrder_goods_no"
+msgstr "出库单货物编号"
+
+#: journey/views/admin.py:32
+msgid "OutboundOrder_warehouse_no"
+msgstr "出库单仓库编号"
+
+#: journey/views/admin.py:36
+msgid "Warehouse_address"
+msgstr "仓库地点"
+
+#: journey/views/admin.py:37
+msgid "Warehouse_id"
+msgstr "仓库ID"
+
+#: journey/views/admin.py:37
+msgid "Warehouse_name"
+msgstr "仓库名称"
+
+#: journey/views/admin.py:38
+msgid "Warehouse_admin_id"
+msgstr "仓库管理人员编号"
+
+#: journey/views/admin.py:42
+msgid "Goods_category"
+msgstr "货物类别"
+
+#: journey/views/admin.py:43
+msgid "Goods_measurement_unit"
+msgstr "货物计量单位"
+
+#: journey/views/admin.py:44
+msgid "Goods_goods_no"
+msgstr "货物编号"
+
+#: journey/views/admin.py:45
+msgid "Goods_id"
+msgstr "货物表ID"
+
+#: journey/views/admin.py:46
+msgid "Goods_name"
+msgstr "货物名称"
+
+#: journey/views/admin.py:50
+msgid "Inventory_goods_no"
+msgstr "库存货物编号"
+
+#: journey/views/admin.py:51
+msgid "Inventory_id"
+msgstr "库存ID"
+
+#: journey/views/admin.py:52
+msgid "Inventory_goods_num"
+msgstr "库存数量"
+
+#: journey/views/admin.py:53
+msgid "Inventory_warehouse_no"
+msgstr "仓库编号"
+
+#: journey/views/admin.py:57
+msgid "InboundOrder_order_no"
+msgstr "入库单编号"
+
+#: journey/views/admin.py:58
+msgid "InboundOrder_supplier_no"
+msgstr "入库单供应商编号"
+
+#: journey/views/admin.py:59
+msgid "InboundOrder_goods_num"
+msgstr "入库单货物数量"
+
+#: journey/views/admin.py:60
+msgid "InboundOrder_warehouse_no"
+msgstr "入库单仓库编号"
+
+#: journey/views/admin.py:61
+#, fuzzy
+msgid "InboundOrder_create_time"
+msgstr "入库单创建时间"
+
+#: journey/views/admin.py:62
+msgid "InboundOrder_goods_price"
+msgstr "入库单货物单价"
+
+#: journey/views/admin.py:63
+msgid "InboundOrder_goods_no"
+msgstr "入库单货物编号"
+
+#: journey/views/admin.py:64
+msgid "InboundOrder_id"
+msgstr "入库单ID"
+
+#: journey/views/admin.py:68
+msgid "Supplier_contact_name"
+msgstr "供应商联系人名称"
+
+#: journey/views/admin.py:69
+msgid "Supplier_contact_phone"
+msgstr "供应商联系人电话"
+
+#: journey/views/admin.py:70
+msgid "Supplier_id"
+msgstr "供应商ID"
+
+#: journey/views/admin.py:71
+msgid "Supplier_name"
+msgstr "供应商联系人名称"
+
+#: journey/views/admin.py:72
+msgid "Supplier_address"
+msgstr "供应商地址"
+
+#: journey/views/admin.py:76
+#, fuzzy
+msgid "User_token"
+msgstr "用户Token"
+
+#: journey/views/admin.py:77
+#, fuzzy
+msgid "User_create_time"
+msgstr "用户创建时间"
+
+#: journey/views/admin.py:78
+#, fuzzy
+msgid "User_is_admin"
+msgstr "用户管理员"
+
+#: journey/views/admin.py:79
+#, fuzzy
+msgid "User_active"
+msgstr "用户激活状态"
+
+#: journey/views/admin.py:80
+#, fuzzy
+msgid "User_password"
+msgstr "用户密码"
+
+#: journey/views/admin.py:81
+#, fuzzy
+msgid "User_user_name"
+msgstr "用户名"
+
+#: journey/views/admin.py:82
+#, fuzzy
+msgid "User_id"
+msgstr "用户ID"
+
+#: journey/views/admin.py:86
+msgid "Manager_contact_phone"
+msgstr "管理员电话"
+
+#: journey/views/admin.py:87
+msgid "Manager_name"
+msgstr "管理员名称"
+
+#: journey/views/admin.py:88
+msgid "Manager_id"
+msgstr "管理员编号"
+
+#: journey/views/admin.py:92
+msgid "Test"
+msgstr "测试"
+
+#: journey/views/admin.py:101
+msgid "OutboundOrder"
+msgstr "出库单"
+
+#: journey/views/admin.py:103
+msgid "Warehouse"
+msgstr "仓库"
+
+#: journey/views/admin.py:105
+msgid "Goods"
+msgstr "货物"
+
+#: journey/views/admin.py:107
+msgid "Inventory"
+msgstr "库存"
+
+#: journey/views/admin.py:109
+msgid "InboundOrder"
+msgstr "入库单"
+
+#: journey/views/admin.py:111
+msgid "Supplier"
+msgstr "供应商"
+
+#: journey/views/admin.py:113
+msgid "User"
+msgstr "用户"
+
+#: journey/views/admin.py:115
+msgid "Manager"
+msgstr "管理员"
+
+#: journey/views/admin.py:119
+msgid "Static Files"
+msgstr "静态文件"
+
+#: journey/views/index.py:20
 msgid "Saturday"
 msgstr "星期六"
 
