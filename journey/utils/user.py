@@ -41,7 +41,7 @@ def login_user(user, permanent=False):
 
 
 def get_user(user_name):
-    return User.query.filter(user_name == user_name).first()
+    return User.query.filter(User.user_name == user_name).first()
 
 
 def get_encrypted_password(password):
@@ -49,14 +49,19 @@ def get_encrypted_password(password):
 
 
 def validate_user(user_name, password):
+    print user_name, password
     user = get_user(user_name)
+    print user.user_name
+    print get_encrypted_password(password)
+    print user.password
     valid = user and get_encrypted_password(password) == user.password
 
     return user if valid else None
 
 
-def reg(user_name, password, active, is_admin=False):
+def reg(user_name, password, active=True, is_admin=False):
     password = get_encrypted_password(password)
     new_user = User(user_name=user_name, password=password, active=active)
     new_user.is_admin = is_admin
     new_user.save()
+    return new_user

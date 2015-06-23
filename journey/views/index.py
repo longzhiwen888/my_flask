@@ -43,8 +43,21 @@ def login_out():
     return redirect('/login/')
 
 
-@bp.route('/user_reg/')
+@bp.route('/reg/', methods=['GET', 'POST'])
 def user_reg():
-    if 'login_token' in session:
-        del session['login_token']
-    return redirect('/login/')
+    next_url = request.args.get('next', '/admin/')
+    if request.method == 'POST':
+        account = request.form.get('account', '')
+        password = request.form.get('password', '')
+        password_confirm = request.form.get('password_confirm', '')
+        if password == password_confirm:
+            user = reg(account, password)
+        else:
+            user = None
+        if user:
+            login_user(user, permanent=True)
+            return redirect(next_url)
+        else:
+            return redirect('/reg/')
+    else:
+        return render_template('reg.html')

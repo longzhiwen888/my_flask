@@ -98,7 +98,10 @@ class User(BaseModel):
     create_time = db.Column(db.DATETIME, default=datetime.now())
     token = db.Column(db.String(100), nullable=True)
 
-    def __init__(self):
+    def __init__(self, **kwargs):
+        for k, v in kwargs.items():
+            setattr(self, k, v)
+
         self.token = self.create_token()
 
     def create_token(self, length=16):

@@ -5,5 +5,5 @@ from journey.flask_init import app
 from journey.views.admin import register_admin
 
 register_admin()
-app.run(debug=False)
+app.run(debug=True)
 

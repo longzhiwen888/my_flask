@@ -6,7 +6,13 @@ from flask import redirect, request, url_for, g
 from flask_admin import Admin, BaseView, expose
 from flask_admin.contrib.sqla import ModelView
 from flask.ext.admin.contrib.fileadmin import FileAdmin
+from flask_admin.contrib.sqla.filters import (
+    BaseSQLAFilter, FilterEqual, FilterLike, FilterGreater, FilterSmaller
+)
 from journey.flask_init import admin, db, gettext as _, web_root
+from journey.utils.user import (
+    login_user, logout_user, reg, validate_user
+)
 import journey.models
 
 
@@ -23,6 +29,19 @@ class MyView(BaseView):
             return redirect(url_for('login', next=request.url))
 
 
+class LoginOutView(BaseView):
+    @expose('/')
+    def index(self):
+        logout_user()
+        return redirect('/login/')
+
+    # def is_accessible(self):
+    #     return True
+
+    # def _handle_view(self, name, **kwargs):
+    #     return redirect(url_for('login', next=request.url))
+
+
 class OutboundOrderModelView(ModelView):
     column_labels = {"order_no": _("OutboundOrder_order_no"),
                      "goods_num": _("OutboundOrder_goods_num"),
@@ -30,7 +49,17 @@ class OutboundOrderModelView(ModelView):
                      "create_time": _("OutboundOrder_create_time"),
                      "goods_no": _("OutboundOrder_goods_no"),
                      "warehouse_no": _("OutboundOrder_warehouse_no")}
-
+    column_searchable_list = ["order_no", "goods_num", "create_time"]
+    column_filters = [
+                      FilterEqual(journey.models.OutboundOrder.goods_no,
+                                  u'出库单货物编号'),
+                      FilterLike(journey.models.OutboundOrder.goods_no,
+                                 u'出库单货物编号'),
+                      FilterGreater(journey.models.OutboundOrder.create_time,
+                                    u'出库单创建时间'),
+                      FilterSmaller(journey.models.OutboundOrder.create_time,
+                                    u'出库单创建时间')
+                    ]
 
 class WarehouseModelView(ModelView):
     column_labels = {"address": _("Warehouse_address"),
@@ -117,6 +146,7 @@ def register_admin():
     print_model_views()
     path = os.path.join(web_root, 'static')
     admin.add_view(FileAdmin(path, '/static/', name=_('Static Files')))
+    admin.add_view(LoginOutView(name=_('Login Out'), endpoint='login_out'))
 
 
 def print_model_views():
