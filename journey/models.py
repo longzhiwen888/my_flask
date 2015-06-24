@@ -98,14 +98,16 @@ class User(BaseModel):
     create_time = db.Column(db.DATETIME, default=datetime.now())
     token = db.Column(db.String(100), nullable=True)
 
-    def __init__(self, **kwargs):
-        for k, v in kwargs.items():
-            setattr(self, k, v)
-
-        self.token = self.create_token()
-
     def create_token(self, length=16):
         return security.gen_salt(length)
+
+    def create_password(self, raw):
+        passwd = '%s%s' % (raw, db.app.config['PASSWORD_SECRET'])
+        return security.generate_password_hash(passwd)
+
+    def check_password(self, raw):
+        passwd = '%s%s' % (raw, db.app.config['PASSWORD_SECRET'])
+        return security.check_password_hash(self.password, passwd)
 
     def __unicode__(self):
         return self.user_name

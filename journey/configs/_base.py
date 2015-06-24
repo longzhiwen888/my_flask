@@ -14,8 +14,7 @@ class BaseConfig(object):
 
     #: account
     SECRET_KEY = 'MY_FLASK_JOURNEY_SECRET_KEY'
-    USERNAME = 'admin'
-    USER_PASSWORD = '111111'
+    PASSWORD_SECRET = 'PASSWORD_SECRET_!)!%'
 
     LOGGERS = {
         'my_flask_journey': {

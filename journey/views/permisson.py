@@ -9,6 +9,7 @@ from flask import (
     request, session,
     current_app
 )
+from journey.utils.user import get_current_user
 
 
 class RequireLogin(object):
@@ -19,20 +20,10 @@ class RequireLogin(object):
             url = url_for('journey.login')
             if '?' not in url:
                 url += '?next=' + request.url
-            login_token = session.get('login_token', '')
-            if not login_token:
+
+            user = get_current_user()
+            if not user:
                 return redirect(url)
-            else:
-                c_config = current_app.config
-                username = c_config.get('USERNAME')
-                user_password = c_config.get('USER_PASSWORD')
-                try:
-                    _username, _user_password = login_token.split('|')
-                except:
-                    return redirect(url)
-                else:
-                    if _username != username or _user_password != user_password:
-                        return redirect(url)
             return method(*args, **kwargs)
 
         return wrapper
