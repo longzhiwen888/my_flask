@@ -3,7 +3,9 @@
 
 import os
 from flask import redirect, request, url_for
+from flask_admin.consts import ICON_TYPE_FONT_AWESOME
 from flask_admin import Admin, BaseView, expose, AdminIndexView
+from flask_admin.base import MenuLink
 from flask_admin.contrib.sqla import ModelView
 from flask.ext.admin.contrib.fileadmin import FileAdmin
 from flask_admin.contrib.sqla.filters import (
@@ -146,6 +148,7 @@ class ManagerModelView(BaseModelView):
 
 def register_admin():
     test_category = _('Test')
+    inventory_category = _('InventoryManagement')
     admin = Admin(app, name=_("Dashbord"), template_mode='bootstrap3',
                   index_view=HomePageView())
     admin.add_view(MyView(name='Hello1', endpoint='test1',
@@ -155,27 +158,43 @@ def register_admin():
     admin.add_view(MyView(name='Hello3', endpoint='test3',
                           category=test_category))
 
-    admin.add_view(OutboundOrderModelView(journey.models.OutboundOrder,
-                                          db.session, name=_("OutboundOrder")))
-    admin.add_view(WarehouseModelView(journey.models.Warehouse,
-                                      db.session, name=_("Warehouse")))
-    admin.add_view(GoodsModelView(journey.models.Goods,
-                                  db.session, name=_("Goods")))
-    admin.add_view(InventoryModelView(journey.models.Inventory,
-                                      db.session, name=_("Inventory")))
-    admin.add_view(InboundOrderModelView(journey.models.InboundOrder,
-                                         db.session, name=_("InboundOrder")))
-    admin.add_view(SupplierModelView(journey.models.Supplier,
-                                     db.session, name=_("Supplier")))
-    admin.add_view(UserModelView(journey.models.User,
-                                 db.session, name=_("User")))
-    admin.add_view(ManagerModelView(journey.models.Manager,
-                                    db.session, name=_("Manager")))
+    admin.add_view(OutboundOrderModelView(
+        journey.models.OutboundOrder, db.session, name=_("OutboundOrder"),
+        category=inventory_category
+    ))
+    admin.add_view(WarehouseModelView(
+        journey.models.Warehouse, db.session, name=_("Warehouse"),
+        category=inventory_category
+    ))
+    admin.add_view(GoodsModelView(
+        journey.models.Goods, db.session, name=_("Goods"),
+        category=inventory_category
+    ))
+    admin.add_view(InventoryModelView(
+        journey.models.Inventory, db.session, name=_("Inventory"),
+        category=inventory_category
+    ))
+    admin.add_view(InboundOrderModelView(
+        journey.models.InboundOrder, db.session, name=_("InboundOrder"),
+        category=inventory_category
+    ))
+    admin.add_view(SupplierModelView(
+        journey.models.Supplier, db.session, name=_("Supplier"),
+        category=inventory_category
+    ))
+    admin.add_view(UserModelView(
+        journey.models.User, db.session, name=_("User"),
+        category=inventory_category
+    ))
+    admin.add_view(ManagerModelView(
+        journey.models.Manager, db.session, name=_("Manager"),
+        category=inventory_category
+    ))
 
     print_model_views()
     path = os.path.join(web_root, 'static')
     admin.add_view(FileAdmin(path, '/static/', name=_('Static Files')))
-    admin.add_view(LoginOutView(name=_('Login Out'), endpoint='login_out'))
+    admin.add_link(MenuLink(name=_('Login Out'), url='/login_out/'))
 
 
 def print_model_views():

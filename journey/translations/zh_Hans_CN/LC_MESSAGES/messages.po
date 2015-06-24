@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-23 17:47+0800\n"
+"POT-Creation-Date: 2015-06-24 16:18+0800\n"
 "PO-Revision-Date: 2015-06-19 10:56+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: zh_Hans_CN <LL@li.org>\n"
@@ -17,12 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: journey/flask_init.py:119
-msgid "Dashbord"
-msgstr "后台管理"
-
-#: journey/templates/web_index.html:1 journey/views/admin.py:16
-#: journey/views/admin.py:29
+#: journey/templates/web_index.html:1 journey/views/admin.py:34
 msgid "Hello, world!"
 msgstr "哈喽, 世界"
 
@@ -31,215 +26,223 @@ msgstr "哈喽, 世界"
 msgid "It's %(day)s today"
 msgstr "今天是%(day)s"
 
-#: journey/views/admin.py:39
+#: journey/views/admin.py:51
 msgid "OutboundOrder_order_no"
 msgstr "出库单订单"
 
-#: journey/views/admin.py:40
+#: journey/views/admin.py:52
 msgid "OutboundOrder_goods_num"
 msgstr "出库单商品数量"
 
-#: journey/views/admin.py:41
+#: journey/views/admin.py:53
 msgid "OutboundOrder_id"
 msgstr "出库单ID"
 
-#: journey/views/admin.py:42
+#: journey/views/admin.py:54
 msgid "OutboundOrder_create_time"
 msgstr "创建时间"
 
-#: journey/views/admin.py:43
+#: journey/views/admin.py:55
 msgid "OutboundOrder_goods_no"
 msgstr "出库单货物编号"
 
-#: journey/views/admin.py:44
+#: journey/views/admin.py:56
 msgid "OutboundOrder_warehouse_no"
 msgstr "出库单仓库编号"
 
-#: journey/views/admin.py:48
+#: journey/views/admin.py:71
 msgid "Warehouse_address"
 msgstr "仓库地点"
 
-#: journey/views/admin.py:49
+#: journey/views/admin.py:72
 msgid "Warehouse_id"
 msgstr "仓库ID"
 
-#: journey/views/admin.py:49
+#: journey/views/admin.py:72
 msgid "Warehouse_name"
 msgstr "仓库名称"
 
-#: journey/views/admin.py:50
+#: journey/views/admin.py:73
 msgid "Warehouse_admin_id"
 msgstr "仓库管理人员编号"
 
-#: journey/views/admin.py:54
+#: journey/views/admin.py:77
 msgid "Goods_category"
 msgstr "货物类别"
 
-#: journey/views/admin.py:55
+#: journey/views/admin.py:78
 msgid "Goods_measurement_unit"
 msgstr "货物计量单位"
 
-#: journey/views/admin.py:56
+#: journey/views/admin.py:79
 msgid "Goods_goods_no"
 msgstr "货物编号"
 
-#: journey/views/admin.py:57
+#: journey/views/admin.py:80
 msgid "Goods_id"
 msgstr "货物表ID"
 
-#: journey/views/admin.py:58
+#: journey/views/admin.py:81
 msgid "Goods_name"
 msgstr "货物名称"
 
-#: journey/views/admin.py:62
+#: journey/views/admin.py:85
 msgid "Inventory_goods_no"
 msgstr "库存货物编号"
 
-#: journey/views/admin.py:63
+#: journey/views/admin.py:86
 msgid "Inventory_id"
 msgstr "库存ID"
 
-#: journey/views/admin.py:64
+#: journey/views/admin.py:87
 msgid "Inventory_goods_num"
 msgstr "库存数量"
 
-#: journey/views/admin.py:65
+#: journey/views/admin.py:88
 msgid "Inventory_warehouse_no"
 msgstr "仓库编号"
 
-#: journey/views/admin.py:69
+#: journey/views/admin.py:92
 msgid "InboundOrder_order_no"
 msgstr "入库单编号"
 
-#: journey/views/admin.py:70
+#: journey/views/admin.py:93
 msgid "InboundOrder_supplier_no"
 msgstr "入库单供应商编号"
 
-#: journey/views/admin.py:71
+#: journey/views/admin.py:94
 msgid "InboundOrder_goods_num"
 msgstr "入库单货物数量"
 
-#: journey/views/admin.py:72
+#: journey/views/admin.py:95
 msgid "InboundOrder_warehouse_no"
 msgstr "入库单仓库编号"
 
-#: journey/views/admin.py:73
+#: journey/views/admin.py:96
 msgid "InboundOrder_create_time"
 msgstr "入库单创建时间"
 
-#: journey/views/admin.py:74
+#: journey/views/admin.py:97
 msgid "InboundOrder_goods_price"
 msgstr "入库单货物单价"
 
-#: journey/views/admin.py:75
+#: journey/views/admin.py:98
 msgid "InboundOrder_goods_no"
 msgstr "入库单货物编号"
 
-#: journey/views/admin.py:76
+#: journey/views/admin.py:99
 msgid "InboundOrder_id"
 msgstr "入库单ID"
 
-#: journey/views/admin.py:80
+#: journey/views/admin.py:103
 msgid "Supplier_contact_name"
 msgstr "供应商联系人名称"
 
-#: journey/views/admin.py:81
+#: journey/views/admin.py:104
 msgid "Supplier_contact_phone"
 msgstr "供应商联系人电话"
 
-#: journey/views/admin.py:82
+#: journey/views/admin.py:105
 msgid "Supplier_id"
 msgstr "供应商ID"
 
-#: journey/views/admin.py:83
+#: journey/views/admin.py:106
 msgid "Supplier_name"
 msgstr "供应商名称"
 
-#: journey/views/admin.py:84
+#: journey/views/admin.py:107
 msgid "Supplier_address"
 msgstr "供应商地址"
 
-#: journey/views/admin.py:88
+#: journey/views/admin.py:111
 msgid "User_token"
 msgstr "用户Token"
 
-#: journey/views/admin.py:89
+#: journey/views/admin.py:112
 msgid "User_create_time"
 msgstr "用户创建时间"
 
-#: journey/views/admin.py:90
+#: journey/views/admin.py:113
 msgid "User_is_admin"
 msgstr "用户管理员"
 
-#: journey/views/admin.py:91
+#: journey/views/admin.py:114
 msgid "User_active"
 msgstr "用户激活状态"
 
-#: journey/views/admin.py:92
+#: journey/views/admin.py:115
 msgid "User_password"
 msgstr "用户密码"
 
-#: journey/views/admin.py:93
+#: journey/views/admin.py:116
 msgid "User_user_name"
 msgstr "用户名"
 
-#: journey/views/admin.py:94
+#: journey/views/admin.py:117
 msgid "User_id"
 msgstr "用户ID"
 
-#: journey/views/admin.py:98
+#: journey/views/admin.py:144
 msgid "Manager_contact_phone"
 msgstr "管理员电话"
 
-#: journey/views/admin.py:99
+#: journey/views/admin.py:145
 msgid "Manager_name"
 msgstr "管理员名称"
 
-#: journey/views/admin.py:100
+#: journey/views/admin.py:146
 msgid "Manager_id"
 msgstr "管理员编号"
 
-#: journey/views/admin.py:104
+#: journey/views/admin.py:150
 msgid "Test"
 msgstr "测试"
 
-#: journey/views/admin.py:113
+#: journey/views/admin.py:151
+msgid "InventoryManagement"
+msgstr "库存管理"
+
+#: journey/views/admin.py:152
+msgid "Dashbord"
+msgstr "后台管理"
+
+#: journey/views/admin.py:162
 msgid "OutboundOrder"
 msgstr "出库单"
 
-#: journey/views/admin.py:115
+#: journey/views/admin.py:166
 msgid "Warehouse"
 msgstr "仓库"
 
-#: journey/views/admin.py:117
+#: journey/views/admin.py:170
 msgid "Goods"
 msgstr "货物"
 
-#: journey/views/admin.py:119
+#: journey/views/admin.py:174
 msgid "Inventory"
 msgstr "库存"
 
-#: journey/views/admin.py:121
+#: journey/views/admin.py:178
 msgid "InboundOrder"
 msgstr "入库单"
 
-#: journey/views/admin.py:123
+#: journey/views/admin.py:182
 msgid "Supplier"
 msgstr "供应商"
 
-#: journey/views/admin.py:125
+#: journey/views/admin.py:186
 msgid "User"
 msgstr "用户"
 
-#: journey/views/admin.py:127
+#: journey/views/admin.py:190
 msgid "Manager"
 msgstr "管理员"
 
-#: journey/views/admin.py:131
+#: journey/views/admin.py:196
 msgid "Static Files"
 msgstr "静态文件"
 
-#: journey/views/admin.py:132
+#: journey/views/admin.py:197
 msgid "Login Out"
 msgstr "退出"
 
