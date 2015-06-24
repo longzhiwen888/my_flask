@@ -4,20 +4,18 @@
 import hashlib
 import os
 from flask import Flask, g, request, url_for
-from flask import _request_ctx_stack
 from flask.ext.babelex import Babel, Domain
 from sqlalchemy.exc import InternalError
+from babel import support
 from journey.configs import CONFIG_MAPPING
 from journey.models import db
 
-all = ['app', 'db']
+__all__ = ['app', 'db']
 
 
 def gettext(string, **variables):
-    ctx = _request_ctx_stack.top
-    if ctx is None:
-        return my_domain.lazy_gettext(string, **variables)
-    return my_domain.gettext(string, **variables)
+    t = my_domain.cache.get(locale)
+    return t.ugettext(string) % variables
 
 
 class MyAPP(Flask):
@@ -47,7 +45,8 @@ class MyAPP(Flask):
             db.session.remove()
             raise error
 
-        self.register_error_handler(InternalError, sqlalchemy_internalerror_handler)
+        self.register_error_handler(InternalError,
+                                    sqlalchemy_internalerror_handler)
 
     def register_resources(self):
         app = self
@@ -111,8 +110,12 @@ app.register_error_handlers()
 
 _ = gettext
 
-
-app.config['BABEL_DEFAULT_LOCALE'] = 'zh_Hans_CN'
+locale = 'zh_Hans_CN'
+app.config['BABEL_DEFAULT_LOCALE'] = locale
 my_domain = Domain()
 babel = Babel(app, default_domain=my_domain)
 web_root = os.path.dirname(__file__)
+
+translations_dir_name = os.path.join(web_root, 'translations')
+translations = support.Translations.load(translations_dir_name, locale)
+my_domain.cache[str(locale)] = translations

@@ -3,14 +3,16 @@
 
 import os
 from flask import redirect, request, url_for
-from flask_admin.consts import ICON_TYPE_FONT_AWESOME
+from flask_admin.consts import ICON_TYPE_FONT_AWESOME, ICON_TYPE_GLYPH
 from flask_admin import Admin, BaseView, expose, AdminIndexView
-from flask_admin.base import MenuLink
+from flask_admin.base import MenuLink, MenuView
 from flask_admin.contrib.sqla import ModelView
 from flask.ext.admin.contrib.fileadmin import FileAdmin
 from flask_admin.contrib.sqla.filters import (
-    FilterEqual, FilterLike, FilterGreater, FilterSmaller
+    FilterEqual, FilterNotEqual, FilterLike, FilterNotLike,
+    FilterGreater, FilterSmaller
 )
+from sqlalchemy.orm.attributes import QueryableAttribute
 from wtforms import PasswordField
 from journey.flask_init import app, db, gettext as _, web_root
 from journey.utils.user import logout_user, get_current_user
@@ -44,7 +46,20 @@ class LoginOutView(BaseView):
 class BaseModelView(ModelView):
     # def is_accessible(self):
     #     return get_current_user()
-    pass
+    column_filters = []
+
+    def __init__(self, *args, **kwargs):
+        super(BaseModelView, self).__init__(*args, **kwargs)
+        column_filters = []
+        for filter_class in [FilterEqual, FilterNotEqual, FilterLike,
+                             FilterNotLike, FilterGreater, FilterSmaller]:
+
+            for name, attribute in self.model.__dict__.items():
+                if isinstance(attribute, QueryableAttribute):
+                    label = "%s_%s" % (self.model.__name__, name)
+                    column_filters.append(filter_class(attribute, _(label)))
+        self.column_filters = column_filters
+        self._refresh_cache()
 
 
 class OutboundOrderModelView(BaseModelView):
@@ -55,16 +70,6 @@ class OutboundOrderModelView(BaseModelView):
                      "goods_no": _("OutboundOrder_goods_no"),
                      "warehouse_no": _("OutboundOrder_warehouse_no")}
     column_searchable_list = ["order_no", "goods_num", "create_time"]
-    column_filters = [
-                      FilterEqual(journey.models.OutboundOrder.goods_no,
-                                  u'出库单货物编号'),
-                      FilterLike(journey.models.OutboundOrder.goods_no,
-                                 u'出库单货物编号'),
-                      FilterGreater(journey.models.OutboundOrder.create_time,
-                                    u'出库单创建时间'),
-                      FilterSmaller(journey.models.OutboundOrder.create_time,
-                                    u'出库单创建时间')
-                    ]
 
 
 class WarehouseModelView(BaseModelView):
@@ -194,11 +199,18 @@ def register_admin():
     print_model_views()
     path = os.path.join(web_root, 'static')
     admin.add_view(FileAdmin(path, '/static/', name=_('Static Files')))
+    admin.add_view(LoginOutView(name=_('Login Out'),
+                                menu_icon_type=ICON_TYPE_FONT_AWESOME,
+                                menu_icon_value='icon-glass'))
+    admin.add_view(LoginOutView(name=_('Login Out'),
+                                menu_icon_type=ICON_TYPE_GLYPH,
+                                menu_icon_value='icon-glass',
+                                endpoint='login_out2'))
+
     admin.add_link(MenuLink(name=_('Login Out'), url='/login_out/'))
 
 
 def print_model_views():
-    from sqlalchemy.orm.attributes import QueryableAttribute
     content_list = []
     for model_name, model_class in journey.models.__dict__.items():
         try:
