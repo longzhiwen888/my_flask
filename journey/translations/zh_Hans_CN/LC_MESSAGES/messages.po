@@ -192,7 +192,7 @@ msgstr "管理员名称"
 
 #: journey/views/admin.py:146
 msgid "Manager_id"
-msgstr "管理员编号"
+msgstr "管理员ID"
 
 #: journey/views/admin.py:150
 msgid "Test"
