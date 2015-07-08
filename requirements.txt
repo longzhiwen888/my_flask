@@ -6,3 +6,4 @@ Flask-Script
 Flask-Migrate
 Flask-Testing
 Flask-SQLAlchemy
+celery==3.1.17

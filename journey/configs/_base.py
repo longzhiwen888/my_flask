@@ -16,6 +16,9 @@ class BaseConfig(object):
     SECRET_KEY = 'MY_FLASK_JOURNEY_SECRET_KEY'
     PASSWORD_SECRET = 'PASSWORD_SECRET_!)!%'
 
+    # celery 配置
+    CELERY_BROKER_URL = 'redis://localhost:6379'
+
     LOGGERS = {
         'my_flask_journey': {
             'level': 'INFO',
